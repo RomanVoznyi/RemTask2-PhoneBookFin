@@ -1,0 +1,21 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  @include flex();
+  background: $gradient-bg;
+  color: $font-color-rev;
+}
+
+.navigate,
+.userMenuBox {
+  @include flex();
+  flex-grow: 1;
+}
+
+.navLinkBox,
+.regLinkBox {
+  flex-grow: 1;
+}
