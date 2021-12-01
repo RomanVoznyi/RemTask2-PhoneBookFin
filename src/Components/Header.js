@@ -7,18 +7,38 @@ const Header = () => {
       <nav className="navigate">
         <Logo />
         <div className="navLinkBox">
-          <NavLink to="/" exact>
+          <NavLink
+            to="/"
+            className={navData =>
+              navData.isActive ? 'navLink active' : 'navLink'
+            }
+          >
             Home
           </NavLink>
-          <NavLink to="/phonebook" exact>
+          <NavLink
+            to="/phonebook"
+            className={navData =>
+              navData.isActive ? 'navLink active' : 'navLink'
+            }
+          >
             Phonebook
           </NavLink>
         </div>
         <div className="regLinkBox">
-          <NavLink to="/login" exact>
+          <NavLink
+            to="/login"
+            className={navData =>
+              navData.isActive ? 'navLink active' : 'navLink'
+            }
+          >
             Login
           </NavLink>
-          <NavLink to="/register" exact>
+          <NavLink
+            to="/register"
+            className={navData =>
+              navData.isActive ? 'navLink active' : 'navLink'
+            }
+          >
             Register
           </NavLink>
         </div>

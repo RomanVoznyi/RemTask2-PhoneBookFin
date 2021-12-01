@@ -4,7 +4,12 @@ import { RiContactsBookFill } from 'react-icons/ri';
 const Logo = () => {
   return (
     <div className="smallLogo">
-      <NavLink to="/" className="logoLink" activeClassName="logolink active">
+      <NavLink
+        to="/"
+        className={navData =>
+          navData.isActive ? 'logoLink active' : 'logoLink'
+        }
+      >
         <RiContactsBookFill className="smallLogoIcon" />
         <h2 className="smallLogoTitle">Phonebook</h2>
       </NavLink>
