@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUser } from './auth-operation';
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  getCurrent,
+} from './auth-operation';
 
 const initialState = {
   user: { name: '', email: '' },
+  token: '',
   isLoggedIn: false,
   isLoading: false,
   error: { status: false, message: '' },
@@ -11,29 +17,85 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {},
   extraReducers: {
-    [registerUser.fulfilled]: (state, action) => {
-      state.user.name = action.user.name;
-      state.user.email = action.user.email;
+    [registerUser.fulfilled](state, { payload }) {
+      state.user = payload.user;
+      state.token = payload.token;
       state.isLoggedIn = true;
       state.isLoading = false;
-      state.error.status = false;
+      state.error = { status: false, message: '' };
     },
-    [registerUser.pending]: (state, _) => {
-      state.isLoading = true;
-      state.error.status = false;
+    [loginUser.fulfilled](state, { payload }) {
+      state.user = payload.user;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.error = { status: false, message: '' };
     },
-    [registerUser.rejected]: (state, action) => {
+    [logoutUser.fulfilled](state, _) {
       state.user.name = '';
       state.user.email = '';
+      state.token = '';
       state.isLoggedIn = false;
       state.isLoading = false;
-      state.error.status = true;
-      state.error.message = action.error;
+      state.error = { status: false, message: '' };
+    },
+    [getCurrent.fulfilled](state, { payload }) {
+      state.user = payload;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+      state.error = { status: false, message: '' };
+    },
+    [registerUser.pending](state, _) {
+      state.isLoading = true;
+      state.error = { status: false, message: '' };
+    },
+    [loginUser.pending](state, _) {
+      state.isLoading = true;
+      state.error = { status: false, message: '' };
+    },
+    [logoutUser.pending](state, _) {
+      state.isLoading = true;
+      state.error = { status: false, message: '' };
+    },
+    [getCurrent.pending](state, _) {
+      state.isLoading = true;
+      state.error = { status: false, message: '' };
+    },
+    [registerUser.rejected](state, { payload }) {
+      state.user.name = '';
+      state.user.email = '';
+      state.token = '';
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.error = { status: true, message: payload };
+    },
+    [loginUser.rejected](state, { payload }) {
+      state.user.name = '';
+      state.user.email = '';
+      state.token = '';
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.error = { status: true, message: payload };
+    },
+    [logoutUser.rejected](state, { payload }) {
+      state.user.name = '';
+      state.user.email = '';
+      state.token = '';
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.error = { status: true, message: payload };
+    },
+    [getCurrent.rejected](state, { payload }) {
+      state.user.name = '';
+      state.user.email = '';
+      state.token = '';
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.error = { status: true, message: payload };
     },
   },
 });
 
 export default authSlice.reducer;
-
-// {"user":{"name":"Roman","email":"roman54321@mail.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWEzZmM1ZjZiN2YyODAwMTUwMjc3YzYiLCJpYXQiOjE2MzgxMzY5Mjd9.eF3zpNOYCkiCaO2c4YEvjFXIWpHYS2ode9UNJ0Fegrs"}

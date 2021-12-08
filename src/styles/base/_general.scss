@@ -49,5 +49,47 @@ a {
 .App {
   width: 100%;
   min-height: calc(100vh-80px);
+  text-align: center;
   background-color: $bg-color;
+}
+
+.section {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  font-size: 24px;
+  @include flex();
+  flex-direction: column;
+
+  //less than 480px
+  background-image: linear-gradient($overlay-color, $overlay-color),
+    url('../../image/bgimage_640.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient($overlay-color, $overlay-color),
+      url('../../image/bgimage_720.webp');
+  }
+
+  //more than 480px
+  @media screen and (min-width: ($mobile + 1)) {
+    background-image: linear-gradient($overlay-color, $overlay-color),
+      url('../../image/bgimage_720.webp');
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient($overlay-color, $overlay-color),
+        url('../../image/bgimage_1280.webp');
+    }
+  }
+
+  //more than 768px
+  @media screen and (min-width: ($tablet + 1)) {
+    background-image: linear-gradient($overlay-color, $overlay-color),
+      url('../../image/bgimage_1280.webp');
+  }
 }

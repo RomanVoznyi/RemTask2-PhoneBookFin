@@ -1,0 +1,78 @@
+.signInBox {
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid $border-color;
+  text-align: center;
+  background-color: $bg-color;
+}
+
+.logoIcon {
+  font-size: 40px;
+  color: $accent-color;
+}
+
+.signInTitle {
+  font: inherit;
+  margin-bottom: 20px;
+}
+
+.signInForm {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  font: inherit;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: $bg-form-color;
+  border: 1px solid $border-form-color;
+}
+
+.signInLabel {
+  display: block;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.signInLabelTitle {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.signInInput {
+  display: block;
+  width: 100%;
+  padding: 5px 12px;
+  font: inherit;
+
+  border: 1px solid $border-form-color;
+  border-radius: 5px;
+  outline: none;
+
+  &:focus {
+    border-color: $border-color;
+    box-shadow: $input-shadow;
+  }
+}
+
+.signInButton {
+  width: 100%;
+  padding: 5px 20px 7px;
+  color: $font-color-rev;
+  background-color: $bg-color-rev;
+  border-radius: 25px;
+  border: 2px solid $border-color;
+  box-shadow: $main-shadow;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.signUpLink {
+  padding: 10px;
+  font: inherit;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: $bg-form-color;
+  border: 1px solid $border-form-color;
+}

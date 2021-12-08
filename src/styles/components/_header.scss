@@ -11,15 +11,19 @@
   box-shadow: $nav-shadow;
 }
 
-.navigate,
-.userMenuBox {
+.navigate {
   @include flex();
   flex-grow: 1;
 }
 
-.navLinkBox,
+.navLinkBox {
+  flex-grow: 1;
+  text-align: left;
+}
+
 .regLinkBox {
   flex-grow: 1;
+  text-align: right;
 }
 
 .navLink {
@@ -45,4 +49,32 @@
   height: 2px;
   border-radius: 5px;
   background-color: $border-color;
+}
+
+.userMenuBox,
+.personBox {
+  @include flex();
+}
+
+.personIcon {
+  margin-right: 10px;
+  font-size: 25px;
+  color: $border-color;
+}
+
+.personGreeting {
+  margin-right: 10px;
+}
+
+.exitButton {
+  min-width: 100px;
+  padding: 5px 20px 7px;
+  color: $font-color-rev;
+  background-color: $bg-color-rev;
+  border-radius: 25px;
+  border: 2px solid $border-color;
+  box-shadow: $main-shadow;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
 }
