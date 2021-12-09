@@ -18,6 +18,9 @@ const RegisterView = lazy(() =>
 const LoginView = lazy(() =>
   import('./Views/LoginView' /* webpackChunkName: "login-view" */),
 );
+const PhonebookView = lazy(() =>
+  import('./Views/PhonebookView' /* webpackChunkName: "phonebook-view" */),
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -32,9 +35,10 @@ function App() {
       <Header />
       <Suspense fallback={<Fallback />}>
         <Routes>
+          <Route path="/" element={<HomeView />} />
           <Route path="/register" element={<RegisterView />} />
           <Route path="/login" element={<LoginView />} />
-          <Route path="/" element={<HomeView />} />
+          <Route path="/phonebook" element={<PhonebookView />} />
         </Routes>
       </Suspense>
       {getError.status && <p>{getError.message}</p>}

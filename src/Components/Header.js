@@ -14,8 +14,6 @@ const Header = () => {
     dispatch(logoutUser());
   };
 
-  // `https://pixabay.com/api/?id=1266883438&key=3NZY2bsd1ttRbidLiyo8SJV4SHxsvpKh9M`;
-
   return (
     <header className="header">
       <nav className="navigate">
