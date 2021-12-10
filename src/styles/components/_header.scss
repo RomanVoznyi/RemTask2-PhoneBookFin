@@ -9,6 +9,7 @@
   color: $font-color-rev;
   border-bottom: 2px solid $border-color;
   box-shadow: $nav-shadow;
+  z-index: 10;
 }
 
 .navigate {

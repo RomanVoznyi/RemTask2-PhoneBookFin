@@ -1,0 +1,21 @@
+.phoneSection {
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  @include flex(left, flex-start);
+}
+
+.filterSide {
+  width: 20%;
+  min-height: inherit;
+  padding: 20px;
+  background: $gradient-bg;
+  color: $font-color-rev;
+  border-right: 2px solid $border-color;
+  box-shadow: $nav-shadow;
+}
+
+.contactsSide {
+  width: 80%;
+  min-height: inherit;
+  padding: 5px;
+}

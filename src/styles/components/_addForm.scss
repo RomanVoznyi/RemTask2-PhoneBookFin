@@ -1,0 +1,95 @@
+.addBox {
+  @include flex(left);
+  padding: 5px;
+  border-bottom: 1px solid $border-form-color;
+}
+
+.addIconBox {
+  @include flex(left);
+  padding: 5px;
+  min-height: 58px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $bg-form-color;
+  }
+}
+
+.addIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  color: $accent-color;
+}
+
+.addForm {
+  @include flex(left);
+  padding: 10px;
+  border: 1px solid $border-form-color;
+  border-radius: 5px;
+}
+
+.addLabel {
+  position: relative;
+  margin-right: 5px;
+  font: inherit;
+}
+
+.addTitle {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  line-height: 1;
+  color: $font-color;
+  transform: translateY(-50%);
+
+  .addInput:focus ~ &,
+  .addInput:not(:placeholder-shown) ~ & {
+    top: -3px;
+    font-size: 12px;
+    background-color: $bg-color;
+  }
+}
+
+.addInput {
+  font: inherit;
+  padding: 5px;
+  border: 2px solid $border-form-color;
+  outline: none;
+  border-radius: 5px;
+
+  &:hover {
+    border: 2px solid rgba(0, 0, 255, 0.4);
+  }
+}
+
+.addButton {
+  min-width: 100px;
+  padding: 3px 10px 5px;
+  border-radius: 25px;
+  border: 2px solid $border-color;
+  box-shadow: $main-shadow;
+
+  font: inherit;
+  text-align: center;
+  color: $font-color-rev;
+  background-color: $bg-color-rev;
+  transform: translate(0, 0);
+  cursor: pointer;
+  outline: none;
+
+  transition: background-color 250ms linear, color 250ms linear;
+
+  &:hover {
+    color: $font-color;
+    background-color: $bg-color;
+  }
+
+  &:focus {
+    color: $font-color-rev;
+    background-color: $bg-color-rev;
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
+}
