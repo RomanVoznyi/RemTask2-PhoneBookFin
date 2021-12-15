@@ -34,4 +34,36 @@ const usersCurrent = async persistedToken => {
   return data;
 };
 
-export { usersSignup, usersSignin, usersLogOut, usersCurrent };
+// Contacts
+const contactsGetAll = async () => {
+  const { data } = await axios.get('/contacts');
+  return data;
+};
+
+const contactsAddNew = async contact => {
+  const { data } = await axios.post('/contacts', contact);
+  return data;
+};
+
+const contactsDeleteOne = async id => {
+  const { data } = await axios.delete(`/contacts/${id}`);
+  console.log(data);
+  return data;
+};
+
+const contactsUpdateOne = async ({ id, updatedContact }) => {
+  const { data } = await axios.patch(`/contacts/${id}`, { updatedContact });
+  console.log(data);
+  return data;
+};
+
+export {
+  usersSignup,
+  usersSignin,
+  usersLogOut,
+  usersCurrent,
+  contactsGetAll,
+  contactsAddNew,
+  contactsDeleteOne,
+  contactsUpdateOne,
+};

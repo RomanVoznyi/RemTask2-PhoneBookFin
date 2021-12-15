@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Fallback from './Components/Fallback';
-import { getError } from './redux/auth/auth-selector';
 import { getCurrent } from './redux/auth/auth-operation';
 
 import { ToastContainer } from 'react-toastify';
@@ -41,7 +40,6 @@ function App() {
           <Route path="/phonebook" element={<PhonebookView />} />
         </Routes>
       </Suspense>
-      {getError.status && <p>{getError.message}</p>}
     </div>
   );
 }

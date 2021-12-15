@@ -1,17 +1,21 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
-import { toast } from 'react-toastify';
+import { getContacts } from '../redux/contacts/contacts-selector';
+import { addNewContact } from '../redux/contacts/contacts-operations';
 
 const INITIAL_STATE = {
   name: '',
   number: '',
 };
 
-const AddForm = ({ contacts, setContacts }) => {
+const AddForm = () => {
   const [name, setName] = useState(INITIAL_STATE.name);
   const [number, setNumber] = useState(INITIAL_STATE.number);
   const [open, setOpen] = useState(false);
+  const contacts = useSelector(state => getContacts(state));
+  const dispatch = useDispatch();
 
   const handleInputField = ({ target }) =>
     target.name === 'number' ? setNumber(target.value) : setName(target.value);
@@ -26,8 +30,7 @@ const AddForm = ({ contacts, setContacts }) => {
         return;
       }
     }
-    setContacts(prevState => [...prevState, { id: nanoid(), name, number }]);
-    toast.success(`Contact was successfuly added!`);
+    dispatch(addNewContact({ id: nanoid(), name, number }));
     setName(INITIAL_STATE.name);
     setNumber(INITIAL_STATE.number);
     toggleAddForm();

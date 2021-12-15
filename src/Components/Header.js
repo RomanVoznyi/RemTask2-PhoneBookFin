@@ -10,7 +10,7 @@ const Header = () => {
   const loggedIn = useSelector(state => isLoggedIn(state));
   const dispatch = useDispatch();
 
-  const handleClick = () => {
+  const handleExit = () => {
     dispatch(logoutUser());
   };
 
@@ -67,7 +67,7 @@ const Header = () => {
               Welcome on board, {user.name}
             </span>
           </div>
-          <button className="exitButton" onClick={handleClick}>
+          <button className="exitButton" onClick={handleExit}>
             Exit
           </button>
         </div>
