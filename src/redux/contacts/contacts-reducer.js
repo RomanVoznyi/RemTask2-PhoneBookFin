@@ -3,7 +3,7 @@ import {
   getAllContacts,
   addNewContact,
   deleteContact,
-  // updateContact,
+  updateContact,
 } from './contacts-operations';
 
 const initialState = {
@@ -37,6 +37,14 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = { status: false, message: '' };
     },
+    [updateContact.fulfilled](state, { payload }) {
+      state.contacts = [
+        ...state.contacts.filter(el => el.id !== payload.id),
+        payload,
+      ];
+      state.isLoading = false;
+      state.error = { status: false, message: '' };
+    },
     [getAllContacts.pending](state, _) {
       state.isLoading = true;
       state.error = { status: false, message: '' };
@@ -46,6 +54,10 @@ const contactsSlice = createSlice({
       state.error = { status: false, message: '' };
     },
     [deleteContact.pending](state, _) {
+      state.isLoading = true;
+      state.error = { status: false, message: '' };
+    },
+    [updateContact.pending](state, _) {
       state.isLoading = true;
       state.error = { status: false, message: '' };
     },
@@ -60,6 +72,11 @@ const contactsSlice = createSlice({
       state.error = { status: true, message: payload };
     },
     [deleteContact.rejected](state, { payload }) {
+      state.contacts = [];
+      state.isLoading = false;
+      state.error = { status: true, message: payload };
+    },
+    [updateContact.rejected](state, { payload }) {
       state.contacts = [];
       state.isLoading = false;
       state.error = { status: true, message: payload };

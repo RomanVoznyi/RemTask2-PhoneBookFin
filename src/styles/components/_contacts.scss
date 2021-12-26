@@ -29,18 +29,23 @@
 }
 
 .contactNameBox {
-  position: relative;
   width: 75%;
   padding: 5px;
+  text-align: left;
 }
 
-.deleteButton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 25px;
-  height: 25px;
+.serviseButtonBox {
+  @include flex(right);
+}
+
+.serviseButton {
+  // position: absolute;
+  // bottom: 0;
+  // right: 0;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+  background-color: transparent;
   color: $overlay-color;
 
   border: none;
@@ -52,42 +57,62 @@
   }
 }
 
-.deleteIcon {
+.serviseIcon {
   width: 100%;
   height: 100%;
 }
 
-// .labelFilterField {
-//   display: block;
-//   margin-bottom: 20px;
-// }
+.updForm {
+  margin-bottom: 5px;
+  text-align: center;
+}
 
-// .deleteButton {
-//   margin-left: 10px;
-//   padding: 2px;
-//   font-size: 12px;
-//   border: none;
-//   outline: none;
-//   border-radius: 5px;
-//   background-color: lightblue;
-//   color: red;
-//   cursor: pointer;
-//   transition: background-color 250ms linear, color 250ms linear;
-// }
+.updInput {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
 
-// .deleteButton:hover {
-//   background-color: rgba(0, 0, 255, 0.5);
-//   color: white;
-// }
+  font: inherit;
+  border: 1px solid $border-form-color;
+  outline: none;
+  border-radius: 5px;
 
-// .deleteButton:focus {
-//   background-color: blue;
-//   color: white;
-// }
+  &:hover {
+    border: 1px solid rgba(0, 0, 255, 0.4);
+  }
 
-// .listItem:not(:last-child) {
-//   /* display: grid;
-//   grid-template-columns: repeat(6, max-content);
-//   grid-gap: 5px; */
-//   margin-bottom: 5px;
-// }
+  &:last-child {
+    margin-bottom: 5px;
+  }
+}
+
+.updButton {
+  min-width: 50px;
+  padding: 3px 5px 3px;
+  border-radius: 25px;
+  border: 2px solid $border-color;
+  box-shadow: $main-shadow;
+
+  font: inherit;
+  font-size: 14px;
+  text-align: center;
+  color: $font-color-rev;
+  background-color: $bg-color-rev;
+  transform: translate(0, 0);
+  cursor: pointer;
+  outline: none;
+
+  transition: background-color 250ms linear, color 250ms linear;
+
+  &:hover {
+    color: $font-color;
+    background-color: $bg-color;
+  }
+
+  &:focus {
+    color: $font-color-rev;
+    background-color: $bg-color-rev;
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
+}

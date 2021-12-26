@@ -47,13 +47,13 @@ const contactsAddNew = async contact => {
 
 const contactsDeleteOne = async id => {
   const { data } = await axios.delete(`/contacts/${id}`);
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
 const contactsUpdateOne = async ({ id, updatedContact }) => {
-  const { data } = await axios.patch(`/contacts/${id}`, { updatedContact });
-  console.log(data);
+  const { data } = await axios.patch(`/contacts/${id}`, updatedContact);
+  // console.log(data);
   return data;
 };
 

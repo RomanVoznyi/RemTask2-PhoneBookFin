@@ -1,9 +1,10 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './Components/Header';
 import Fallback from './Components/Fallback';
 import { getCurrent } from './redux/auth/auth-operation';
+import { isLoggedIn } from './redux/auth/auth-selector';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,9 +21,13 @@ const LoginView = lazy(() =>
 const PhonebookView = lazy(() =>
   import('./Views/PhonebookView' /* webpackChunkName: "phonebook-view" */),
 );
+const NotFoundView = lazy(() =>
+  import('./Views/NotFoundView' /* webpackChunkName: "notfound-view" */),
+);
 
 function App() {
   const dispatch = useDispatch();
+  const loggedIn = useSelector(state => isLoggedIn(state));
 
   useEffect(() => {
     dispatch(getCurrent());
@@ -35,9 +40,19 @@ function App() {
       <Suspense fallback={<Fallback />}>
         <Routes>
           <Route path="/" element={<HomeView />} />
-          <Route path="/register" element={<RegisterView />} />
-          <Route path="/login" element={<LoginView />} />
-          <Route path="/phonebook" element={<PhonebookView />} />
+          <Route
+            path="/register"
+            element={!loggedIn ? <RegisterView /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/login"
+            element={!loggedIn ? <LoginView /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/phonebook"
+            element={loggedIn ? <PhonebookView /> : <Navigate to="/login" />}
+          />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </Suspense>
     </div>
