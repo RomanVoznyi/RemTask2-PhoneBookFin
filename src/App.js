@@ -8,6 +8,12 @@ import { isLoggedIn } from './redux/auth/auth-selector';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addBackToTop } from 'vanilla-back-to-top';
+addBackToTop({
+  diameter: 56,
+  backgroundColor: '#1e3d59',
+  textColor: '#f5f0e1',
+});
 
 const HomeView = lazy(() =>
   import('./Views/HomeView' /* webpackChunkName: "home-view" */),

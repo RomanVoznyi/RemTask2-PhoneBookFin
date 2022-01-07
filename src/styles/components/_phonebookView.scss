@@ -5,6 +5,9 @@
 }
 
 .filterSide {
+  position: fixed;
+  top: 80px;
+  left: 0;
   width: 20%;
   min-height: inherit;
   padding: 20px;
@@ -15,6 +18,7 @@
 }
 
 .contactsSide {
+  margin-left: 20%;
   width: 80%;
   min-height: inherit;
   padding: 5px;

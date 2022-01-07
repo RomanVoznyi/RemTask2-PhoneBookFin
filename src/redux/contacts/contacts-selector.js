@@ -1,4 +1,5 @@
 const getContacts = state => state.contacts.contacts;
-const getFilter = state => state.contacts.filter;
+const getFilterName = state => state.contacts.filterName;
+const getFilterLetter = state => state.contacts.filterLetter;
 
-export { getContacts, getFilter };
+export { getContacts, getFilterName, getFilterLetter };

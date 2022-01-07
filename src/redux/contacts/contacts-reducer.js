@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   contacts: [],
-  filter: '',
+  filterName: '',
+  filterLetter: '',
   isLoading: false,
   error: { status: false, message: '' },
 };
@@ -17,8 +18,11 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    setFilter(state, { payload }) {
-      state.filter = payload;
+    setFilterName(state, { payload }) {
+      state.filterName = payload;
+    },
+    setFilterLetter(state, { payload }) {
+      state.filterLetter = payload;
     },
   },
   extraReducers: {
@@ -84,6 +88,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { setFilter } = contactsSlice.actions;
+export const { setFilterName, setFilterLetter } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

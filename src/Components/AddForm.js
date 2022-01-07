@@ -54,8 +54,8 @@ const AddForm = () => {
               type="text"
               className="addInput"
               name="name"
-              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-              title="Имя может состоять только из букв, апострофа, тире и пробелов."
+              pattern="^[a-zA-Zа-яА-ЯЁё]+(([' -][a-zA-Zа-яА-ЯЁё ])?[a-zA-Zа-яА-ЯЁё]*)*$"
+              title="Only letters, apostrophe, dash and spaces."
               value={name}
               onChange={handleInputField}
               placeholder=" "
@@ -69,7 +69,7 @@ const AddForm = () => {
               className="addInput"
               name="number"
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+              title="Must be digits and can contain spaces, dashes, parentheses and can start with +"
               value={number}
               onChange={handleInputField}
               placeholder=" "

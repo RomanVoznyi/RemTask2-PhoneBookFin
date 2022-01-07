@@ -1,9 +1,8 @@
 import Contacts from '../Components/Contacts';
-import Filter from '../Components/Filter';
+import Filter from '../Components/Filter/Filter';
 import AddForm from '../Components/AddForm';
 
 const PhonebookView = () => {
-
   return (
     <div className="phoneSection">
       <aside className="filterSide">

@@ -1,3 +1,15 @@
+.letterBox {
+  margin-bottom: 10px;
+}
+
+.letterTitle {
+  margin-bottom: 5px;
+  padding: 5px;
+  border-bottom: 1px solid $border-color;
+  text-align: left;
+  color: $font-color;
+}
+
 .contactList {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
@@ -39,9 +51,6 @@
 }
 
 .serviseButton {
-  // position: absolute;
-  // bottom: 0;
-  // right: 0;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -102,7 +111,7 @@
   cursor: pointer;
   outline: none;
 
-  transition: background-color 250ms linear, color 250ms linear;
+  @include transition(background-color, color);
 
   &:hover {
     color: $font-color;

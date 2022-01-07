@@ -28,7 +28,10 @@ const Person = ({ el }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     for (const contact of contacts) {
-      if (contact.name.toLowerCase() === name.toLowerCase()) {
+      if (
+        contact.name.toLowerCase() === name.toLowerCase() &&
+        el.name.toLowerCase() !== name.toLowerCase()
+      ) {
         alert(`${name} is already in contacts`);
         return;
       }
@@ -57,7 +60,7 @@ const Person = ({ el }) => {
                 className="updInput"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                title="Имя может состоять только из букв, апострофа, тире и пробелов."
+                title="Only letters, apostrophe, dash and spaces."
                 value={name}
                 onChange={handleInputField}
                 placeholder=" "
@@ -69,7 +72,7 @@ const Person = ({ el }) => {
                 className="updInput"
                 name="number"
                 pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+                title="Must be digits and can contain spaces, dashes, parentheses and can start with +"
                 value={number}
                 onChange={handleInputField}
                 placeholder=" "

@@ -1,0 +1,117 @@
+.filterArticle {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.filterAlphaArticle {
+  position: relative;
+  text-align: left;
+}
+
+.filterArticleTitle {
+  display: inline-block;
+  margin-bottom: 5px;
+  font: inherit;
+}
+
+.labelFilterField {
+  display: block;
+}
+
+.filterField {
+  width: 100%;
+  padding: 5px;
+  border: 2px solid $border-form-color;
+  outline: none;
+  border-radius: 5px;
+  font: inherit;
+
+  &:hover {
+    border: 2px solid rgba(0, 0, 255, 0.4);
+  }
+}
+
+.localBox {
+  text-align: right;
+}
+
+.alphaLang {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  line-height: 1;
+  width: 30px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: $overlay-color;
+  border: 2px solid $border-color;
+  cursor: pointer;
+  @include transition(color, background-color, border);
+
+  &:hover {
+    background-color: $overlay-hover;
+  }
+
+  &.active {
+    color: $font-color;
+    background-color: $bg-color;
+    border: 2px solid $accent-color;
+  }
+
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}
+
+.alphaBox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30px);
+  gap: 5px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.alphaLetter {
+  position: relative;
+  @include flex();
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: $overlay-color;
+  border: 2px solid $border-color;
+  cursor: pointer;
+  @include transition(color, background-color, border);
+
+  &:hover {
+    background-color: $overlay-hover;
+  }
+
+  &.active {
+    color: $font-color;
+    background-color: $bg-color;
+    border: 2px solid $accent-color;
+  }
+
+  &.disabled {
+    background-color: $overlay-hover;
+    border: 2px solid $overlay-hover;
+    cursor: default;
+  }
+}
+
+.alphaLink {
+  position: absolute;
+  @include allSpace();
+}
+
+.clearBtn {
+  @extend .updButton;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
