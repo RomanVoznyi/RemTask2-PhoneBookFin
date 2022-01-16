@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { logoutUser } from '../redux/auth/auth-operation';
-import { getUser, isLoggedIn } from '../redux/auth/auth-selector';
+import { logoutUser } from '../../redux/auth/auth-operation';
+import { getUser, isLoggedIn } from '../../redux/auth/auth-selector';
 import { BsPersonCircle } from 'react-icons/bs';
-import Logo from './Logo';
+import SmallLogo from './SmallLogo';
 
-const Header = () => {
+const DisplayNavigation = () => {
   const user = useSelector(state => getUser(state));
   const loggedIn = useSelector(state => isLoggedIn(state));
   const dispatch = useDispatch();
@@ -15,9 +15,9 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <div className="displayNavigationBox">
       <nav className="navigate">
-        <Logo />
+        <SmallLogo />
         <div className="navLinkBox">
           <NavLink
             to="/"
@@ -72,8 +72,8 @@ const Header = () => {
           </button>
         </div>
       )}
-    </header>
+    </div>
   );
 };
 
-export default Header;
+export default DisplayNavigation;

@@ -1,6 +1,11 @@
 .filterArticle {
+  margin-top: 10px;
   margin-bottom: 20px;
   text-align: left;
+
+  @media screen and (min-width: ($tablet+1)) {
+    margin-top: 0;
+  }
 }
 
 .filterAlphaArticle {
@@ -9,13 +14,14 @@
 }
 
 .filterArticleTitle {
-  display: inline-block;
+  display: block;
   margin-bottom: 5px;
   font: inherit;
 }
 
 .labelFilterField {
   display: block;
+  max-width: 300px;
 }
 
 .filterField {

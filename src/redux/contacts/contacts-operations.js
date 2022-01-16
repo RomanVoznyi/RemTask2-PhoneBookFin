@@ -53,8 +53,7 @@ const updateContact = createAsyncThunk(
   async ({ id, updatedContact }, thunkAPI) => {
     try {
       const contacts = await contactsUpdateOne({ id, updatedContact });
-      toast.success(`Contact was successfully updated!`);
-      console.log(contacts);
+      toast.success(`Contact was successfully updated!`);      
       return contacts;
     } catch (error) {
       toast.error(`Something wrong! ${error.message}`);

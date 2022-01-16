@@ -12,9 +12,56 @@
   z-index: 10;
 }
 
+.displayNavigationBox {
+  display: none;
+
+  @media screen and (min-width: ($tablet+1)) {
+    @include flex(left);
+    flex-grow: 1;
+  }
+}
+
+.mobileNavigationBox {
+  @include flex(left);
+  flex-grow: 1;
+
+  @media screen and (min-width: ($tablet+1)) {
+    display: none;
+  }
+}
+
+.menuButtons {
+  @include flex();
+  font-size: 25px;
+  margin-left: auto;
+  color: $border-color;
+}
+
 .navigate {
   @include flex();
   flex-grow: 1;
+}
+
+.mobileNavigate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  opacity: 1;
+  pointer-events: visible;
+  background-color: $overlay-color;
+  border-radius: 5px;
+  transform: translateY(80px);
+
+  @include transition(transform);
+
+  &.close {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0px);
+  }
 }
 
 .navLinkBox {
@@ -29,38 +76,66 @@
 
 .navLink {
   position: relative;
+  display: block;
+  width: fit-content;
+  text-align: left;
   font: inherit;
+  font-size: 14px;
   color: inherit;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: ($tablet+1)) {
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+    &:not(:last-child) {
+      margin-bottom: 0px;
+      margin-right: 10px;
+    }
+  }
+
+  &.active {
+    color: inherit;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-radius: 5px;
+      background-color: $border-color;
+    }
+  }
 }
 
-.navLink:not(:last-child) {
-  margin-right: 10px;
-}
-
-.navLink.active {
-  color: inherit;
-}
-
-.navLink.active::after {
-  content: ' ';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  border-radius: 5px;
-  background-color: $border-color;
-}
-
-.userMenuBox,
-.personBox {
+.userMenuBox {
   @include flex();
 }
 
+.personBox {
+  margin-bottom: 20px;
+  font-size: 14px;
+  @media screen and (min-width: ($tablet+1)) {
+    @include flex();
+    margin-bottom: 0px;
+    font-size: 16px;
+  }
+}
+
 .personIcon {
-  margin-right: 10px;
+  display: block;
+  margin: 0 auto;
   font-size: 25px;
   color: $border-color;
+
+  @media screen and (min-width: ($tablet+1)) {
+    margin-right: 10px;
+  }
 }
 
 .personGreeting {
@@ -68,14 +143,15 @@
 }
 
 .exitButton {
-  min-width: 100px;
-  padding: 5px 20px 7px;
+  min-width: 80px;
+  padding: 5px 10px 7px;
   color: $font-color-rev;
   background-color: $bg-color-rev;
   border-radius: 25px;
   border: 2px solid $border-color;
   box-shadow: $main-shadow;
   font: inherit;
+  font-size: 14px;
   text-align: center;
   cursor: pointer;
 
@@ -91,5 +167,11 @@
     background-color: $bg-color-rev;
     transform: translate(1px, 1px);
     box-shadow: none;
+  }
+
+  @media screen and (min-width: ($tablet+1)) {
+    min-width: 100px;
+    padding: 5px 20px 7px;
+    font-size: 16px;
   }
 }

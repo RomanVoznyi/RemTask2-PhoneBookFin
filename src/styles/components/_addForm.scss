@@ -1,39 +1,70 @@
 .addBox {
-  @include flex(left);
   padding: 5px;
   border-bottom: 1px solid $border-form-color;
+  font: inherit;
+  font-size: 14px;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    @include flex(left);
+    font-size: 16px;
+  }
 }
 
 .addIconBox {
   @include flex(left);
-  padding: 5px;
-  min-height: 58px;
   margin-right: 10px;
   cursor: pointer;
 
   &:hover {
     background-color: $bg-form-color;
   }
+
+  @media screen and (min-width: ($tablet + 1)) {
+    min-height: 58px;
+  }
 }
 
 .addIcon {
-  width: 30px;
-  height: 30px;
+  font-size: 25px;
   margin-right: 10px;
   color: $accent-color;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    min-height: 58px;
+    font-size: 30px;
+  }
+}
+
+.addIconTitle {
+  min-width: 120px;
 }
 
 .addForm {
-  @include flex(left);
-  padding: 10px;
+  margin-top: 10px;
+  padding: 5px;
   border: 1px solid $border-form-color;
   border-radius: 5px;
+  text-align: left;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    @include flex(left);
+    margin-top: 0px;
+  }
 }
 
 .addLabel {
   position: relative;
-  margin-right: 5px;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  max-width: 300px;
   font: inherit;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    display: inline-flex;
+    margin-right: 5px;
+    margin-bottom: 0px;
+  }
 }
 
 .addTitle {
@@ -53,11 +84,13 @@
 }
 
 .addInput {
-  font: inherit;
+  width: 100%;
   padding: 5px;
+
+  font: inherit;
   border: 2px solid $border-form-color;
-  outline: none;
   border-radius: 5px;
+  outline: none;
 
   &:hover {
     border: 2px solid rgba(0, 0, 255, 0.4);
@@ -65,7 +98,7 @@
 }
 
 .addButton {
-  min-width: 100px;
+  min-width: 110px;
   padding: 3px 10px 5px;
   border-radius: 25px;
   border: 2px solid $border-color;

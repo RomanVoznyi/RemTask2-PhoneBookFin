@@ -54,9 +54,10 @@ a {
 }
 
 .section {
-  margin-top: 80px;
-  min-height: calc(100vh - 80px);
-  font-size: 24px;
+  margin-top: 76px;
+  min-height: calc(100vh - 76px);
+  padding: 10px;
+  font-size: 20px;
   @include flex();
   flex-direction: column;
 
@@ -80,10 +81,13 @@ a {
       screen and (min-resolution: 2dppx) {
       background-image: url('../../image/bgimage/768@2x.webp');
     }
-  }  
+  }
 
   //less than 1440px
   @media screen and (min-width: ($tablet + 1)) {
+    margin-top: 80px;
+    min-height: calc(100vh - 80px);
+    font-size: 24px;
     background-image: url('../../image/bgimage/1440.webp');
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -101,6 +105,32 @@ a {
       screen and (min-resolution: 192dpi),
       screen and (min-resolution: 2dppx) {
       background-image: url('../../image/bgimage/1920@2x.webp');
+    }
+  }
+}
+
+#back-to-top {
+  @include flex();
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $bg-color-rev;
+  color: $font-color-rev;
+
+  & svg {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media screen and (min-width: ($tablet + 1)) {
+    width: 56px;
+    height: 56px;
+
+    & svg {
+      margin: 0;
+      width: 40px;
+      height: 40px;
     }
   }
 }

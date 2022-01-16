@@ -12,17 +12,30 @@
 
 .logoIcon {
   margin-right: 5px;
-  font-size: 40px;
+  font-size: 36px;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    font-size: 40px;
+  }
 }
 
 .logoTitle {
-  @include font(700, 35px, 1.05, 0.03em, $logo-font);
+  @include font(700, 30px, 1.05, 0.03em, $logo-font);
+  word-break: break-all;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    font-size: 35px;
+  }
 }
 
 .homeTitle {
   margin-bottom: 40px;
-  @include font(700, 42px, 1.1, 0.05em);
+  @include font(700, 30px, 1.1, 0.05em);
   color: $font-color-rev;
+
+  @media screen and (min-width: ($tablet + 1)) {
+    font-size: 40px;
+  }
 }
 
 .homeLinkBtn {

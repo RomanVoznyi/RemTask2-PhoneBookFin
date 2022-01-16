@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Header from './Components/Header';
+import Header from './Components/Header/Header';
 import Fallback from './Components/Fallback';
 import { getCurrent } from './redux/auth/auth-operation';
 import { isLoggedIn } from './redux/auth/auth-selector';
@@ -9,11 +9,7 @@ import { isLoggedIn } from './redux/auth/auth-selector';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addBackToTop } from 'vanilla-back-to-top';
-addBackToTop({
-  diameter: 56,
-  backgroundColor: '#1e3d59',
-  textColor: '#f5f0e1',
-});
+addBackToTop();
 
 const HomeView = lazy(() =>
   import('./Views/HomeView' /* webpackChunkName: "home-view" */),

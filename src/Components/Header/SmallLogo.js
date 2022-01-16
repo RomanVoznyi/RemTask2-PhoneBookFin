@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { RiContactsBookFill } from 'react-icons/ri';
 
-const Logo = () => {
+const SmallLogo = () => {
   return (
     <div className="smallLogo">
       <NavLink
@@ -17,4 +17,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default SmallLogo;

@@ -39,7 +39,7 @@ const logoutUser = createAsyncThunk('auth/logoutUser', async (_, thunkAPI) => {
   try {
     await usersLogOut();
   } catch (error) {
-    toast.error(`Log out failed! ${error.message}`);
+    toast.error(`Logout failed! ${error.message}`);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
